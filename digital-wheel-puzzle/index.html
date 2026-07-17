@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Wheel Puzzle</title>
+  <link rel="preconnect" href="https://gstatic.aby.pub">
+  <link
+    href="https://gstatic.aby.pub/css2?family=Orbitron:wght@400;700;900&family=Noto+Sans+SC:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <canvas id="gameCanvas"></canvas>
+
+  <div id="victory-overlay">
+    <div class="victory-card">
+      <div class="victory-title">&#x1F389; 恭喜过关!</div>
+      <div class="victory-subtitle">所有数字已归零</div>
+      <div class="victory-steps">剩余 <span id="finalSteps">0</span> 步</div>
+      <div class="victory-history">
+        <div class="victory-history-title">操作记录</div>
+        <div class="victory-history-content" id="historyContent"></div>
+      </div>
+      <button class="btn-restart" onclick="resetGame()">再来一局</button>
+    </div>
+  </div>
+
+  <div id="gameover-overlay">
+    <div class="victory-card gameover-card">
+      <div class="gameover-title">&#x1F4A5; 游戏失败</div>
+      <div class="victory-subtitle">步数已用尽，未能将所有数字归零</div>
+      <div class="gameover-state-title">最终状态</div>
+      <div class="gameover-state" id="finalState"></div>
+      <div class="victory-history">
+        <div class="victory-history-title">操作记录</div>
+        <div class="victory-history-content" id="gameoverHistoryContent"></div>
+      </div>
+      <button class="btn-restart btn-restart-fail" onclick="resetGame()">从头开始</button>
+    </div>
+  </div>
+
+  <div id="error-overlay">
+    <div class="error-card">
+      <div class="error-title">&#x26A0; 参数错误</div>
+      <div class="error-message" id="errorMessage"></div>
+      <div class="error-param" id="errorParam"></div>
+    </div>
+  </div>
+
+  <script src="game.min.js"></script>
+</body>
+
+</html>
