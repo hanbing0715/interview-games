@@ -35,10 +35,34 @@ canvas {
     0 0 60px rgba(180, 130, 40, 0.15),
     0 20px 60px rgba(0, 0, 0, 0.5),
     inset 0 0 80px rgba(0, 0, 0, 0.3);
-  max-width: 95vw;
-  max-height: 90vh;
+  max-width: 95%;
+  max-height: 92%;
   width: auto;
   height: auto;
+}
+
+/* 舞台容器：横屏铺满视口并居中画布 */
+#stage {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: left top;
+}
+
+/* 竖屏设备：将整个舞台旋转 90°，锁定为横屏展示 */
+@media screen and (orientation: portrait) {
+  #stage {
+    top: 100%;
+    left: 0;
+    width: 100vh;
+    height: 100vw;
+    transform: rotate(-90deg);
+  }
 }
 
 #victory-overlay {
